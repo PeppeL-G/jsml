@@ -1,0 +1,18 @@
+{
+  "name": "@jsml/express-engine",
+  "version": "0.0.1",
+  "description": "Rendering engine for Express using JSML.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "rendering",
+    "engine",
+    "jsml"
+  ],
+  "author": "Peter Larsson-Green",
+  "license": "ISC"
+}
