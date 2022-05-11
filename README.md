@@ -1,11 +1,11 @@
-# JSML - JavaScript Markup Language
-This is the official repository for JavaScript Markup Language.
+# JSML - JavaScript Markup Library
+This is the official repository for the JavaScript Markup Library; the answer to *What is the best way to create HTML in JS?*
 
 ## Introduction
-There exists many different template languages one can use to generate dynamic HTML code, such as:
+There exists many different template languages one can use to generate HTML code, such as:
 
-* Handlebars
-* Jade
+* [Handlebars](https://handlebarsjs.com/)
+* [Jade](https://jade-lang.com/)
 * ...
 
 However, JavaScript is quite powerful on its own, and it is possible to generate dynamic HTML code using only JavaScript in a quite readable way. That's what JSML is: a collection of JavaScript functions you can use to generate dynamic HTML code! For an example, see the code below.
@@ -39,7 +39,10 @@ const div = Div.id(`main`)(
 		),
 	),
 	
-	Button(`Create new`).id(`create-new-button`).class(`red`),
+	A(`Create new`)
+		.href(`/todos/create`)
+		.id(`create-new-link`)
+		.class(`red`),
 	
 )
 
@@ -48,7 +51,7 @@ console.log(htmlCode)
 ```
 
 ## Why?
-The syntax in JSML is the same as in JavaScript, so the only thing you need to learn are a few new functions and methods to call. Extremely easy!
+The syntax in JSML is the same as in JavaScript, so the only thing you need to learn are a few new functions and methods to call. Extremely easy compared to learning a new template language!
 
 ## Documentation
 See the documentation in each package to learn more.

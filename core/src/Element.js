@@ -41,7 +41,7 @@ export class Element extends ComponentInterface{
 	getAsHtmlString(){
 		
 		const attributes = this.attributes.map(
-			a => ` ${a.name}="${a.value}"`
+			a => ` ${a.name}="${escapeHtml(a.value)}"`
 		).join(``)
 		
 		const startTag = `<${this.tagName}${attributes}>`

@@ -15,7 +15,7 @@ For each HTML element, this package exports a function with the same name:
 
 
 ### Basic usage
-Simply call the corresponding function to create a new HTML element of that type. When you call it, you can pass it its content through its arguments. Call the method `getAsHtmlString()` to get the HTML structure as HTML code.
+Simply call the corresponding function to create a new HTML element of that type. When you call it, you can pass it its content as the arguments. Call the method `getAsHtmlString()` to get the HTML structure as HTML code.
 
 ```js
 import { H1 } from '@jsml/core'
@@ -81,9 +81,6 @@ const divElement = Div.class('the-page')( // Calling the element as a function h
 
 ```js
 const h1Element = H1.id(`title`).class(`important`)(`Since this text is quite long, it might be a good idea to set the attributes first to make the code more readable.`)
-
-console.log(h1Element.getAsHtmlString())
-// <h1 id="title" class="important">Hello</h1>
 ```
 
 Use whichever method you think makes your code most readable.
@@ -110,7 +107,7 @@ console.log(divElement.getAsHtmlCode())
 
 
 ## Escaping HTML code
-Content (**but not attributes!**) containing HTML code in strings will be escaped to avoid introducing Cross-Site Scripting (XSS) vulnerabilities. 
+Content and attribute values containing HTML code in strings will be escaped to avoid introducing Cross-Site Scripting (XSS) vulnerabilities. 
 
 ```js
 import { Div, P } from '@jsml/core'
@@ -121,10 +118,10 @@ console.log(pElement.getAsHtmlString())
 ```
 
 ```js
-const pElement = P(`Hello`).id(`>Don't write HTML here!`)
+const pElement = P(`Hello`).id(`>hi!`)
 
 console.log(pElement.getAsHtmlString())
-// <p id=">Don't write HTML here!">Hello</p>
+// <p id="&gt;hi!">Hello</p>
 ```
 
 If you want a string containing HTML code to be displayed as HTML code, wrap the string in the `HTML()` function.
@@ -142,7 +139,7 @@ console.log(pElement.getAsHtmlString())
 
 
 ## Conditional expressions
-You can use plain JavaScript to conditionally create the elements the elements you need.
+You can use plain JavaScript to conditionally create the elements you need.
 
 ```js
 const names = [`Alice`, `Bob`, `Claire`]
@@ -188,7 +185,9 @@ const element = Div.class(`names-page`)(
 	).ELSE(
 		P(`There are ${names.length} names: `),
 		Ul(
-			names.map(Li),
+			names.map(
+				n => Li(n)
+			),
 		),
 	),
 	
