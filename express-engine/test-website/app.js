@@ -5,7 +5,7 @@ import { humans } from './data.js'
 export const app = express()
 
 app.engine('js', createJsmlEngine({
-	layoutFileName: 'main.js'
+	defaultLayoutFilename: 'main.js'
 }))
 
 app.use(function(request, response, next){

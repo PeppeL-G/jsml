@@ -3,7 +3,7 @@ In this file you find the documentation for how to use the functions from `@jsml
 
 
 
-## HTML elements
+## Basic usage
 For each HTML element, this package exports a function with the same name:
 
 * For `<h1>`, the package exports the function `H1()`
@@ -11,10 +11,6 @@ For each HTML element, this package exports a function with the same name:
 * For `<a>`, the package exports the function `A()`
 * ...
 
-
-
-
-### Basic usage
 Simply call the corresponding function to create a new HTML element of that type. When you call it, you can pass it its content as the arguments. Call the method `getAsHtmlString()` to get the HTML structure as HTML code.
 
 ```js
@@ -39,7 +35,8 @@ console.log(divElement.getAsHtmlCode())
 ```
 
 
-### Adding attributes
+
+## Adding attributes
 Adding attributes is done by calling the method with the same name as the attribute, and pass it the value as argument to the method. These methods are also chainable (they return the element instance itself), so you can call them multiple times.
 
 ```js
@@ -52,7 +49,7 @@ console.log(h1Element.getAsHtmlString())
 
 
 
-### Setting the content
+## Setting the content
 As you should know by now, you can pass the content to the element when you create it. But that makes the code hard to read for an element containing attributes and many children, as seen below.
 
 ```js
